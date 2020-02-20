@@ -1,0 +1,14 @@
+#
+E f
+
+# Il y a trois fichiers sources
+C src/*.c src/*/*.c
+
+# et un fichier d'entete
+H src/*.h src/*/*.h
+
+#j'utilise la bibliotheque math
+B -lm
+
+#et je souhaite ajouter le flag debug
+F -g

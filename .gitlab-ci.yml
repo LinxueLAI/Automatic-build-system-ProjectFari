@@ -1,0 +1,90 @@
+stages:
+    - build
+    - test-base
+    - test-base++
+    - test-Linked-Headers
+    - test-Java
+    - test-globbing
+
+image: debian:stretch
+
+
+build-all:
+    stage: build
+    script:
+        - apt-get update && apt install -y build-essential
+        - apt-get install -y libjson-c-dev
+        - make
+    artifacts:
+        paths:
+            - fari
+
+basic-test:
+    stage: test-base
+    dependencies:
+        - build-all
+    script:
+        - apt-get update && apt install -y build-essential
+        - apt-get install -y libjson-c-dev
+        - make
+        - bash ./test-base.sh
+basic-test++:
+    stage: test-base++
+    dependencies:
+        - build-all
+    script:
+        - apt-get update && apt install -y build-essential
+        - apt-get install -y libjson-c-dev
+        - make
+        - bash ./test-base++.sh
+
+Linked-Headers-test:
+    stage: test-Linked-Headers
+    dependencies:
+        - build-all
+    script:
+        - apt-get update && apt install -y build-essential
+        - apt-get install -y libjson-c-dev
+        - make
+        - bash ./test-Linked-Headers.sh
+
+Java-test:
+    stage: test-Java
+    dependencies:
+        - build-all
+    script:
+        - apt-get update && apt install -y build-essential
+        - apt-get install -y libjson-c-dev
+        - apt-get install -y default-jdk
+        - make
+        - bash ./test-Java.sh
+
+
+Globbing-test:
+    stage: test-globbing
+    dependencies:
+        - build-all
+    script:
+        - apt-get update && apt install -y build-essential
+        - apt-get install -y libjson-c-dev
+        - make
+        - bash ./test-globbing.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

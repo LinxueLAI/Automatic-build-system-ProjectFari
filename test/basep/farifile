@@ -1,0 +1,16 @@
+# MON EXECUTABLE S'APPELLE f
+E f
+
+# Il y a trois fichiers sources
+C f.c
+C f1.c f2.c
+
+# et un fichier d'entete
+H f2.h f1.h
+
+#j'utilise la bibliotheque math
+B -lm
+
+#et je souhaite ajouter le flag debug
+F -g
+
