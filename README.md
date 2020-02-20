@@ -5,7 +5,8 @@
   
   2. Fari's execution sequence
   Fari compiles all the .c files into .o files (using gcc -c) and then links to all the .o files in the final executable. Like make, fari recompiles only what is needed. The following algorithm is used to decide what should be recompiled: 
-  - For each .c file: If there is no .o file does match, it must recompile the .c (with gcc -c, and adding the specified flags).
+  - For each .c file:
+      - If there is no .o file does match, it must recompile the .c (with gcc -c, and adding the specified flags).
       - If there is a .o file but the .c is more recent, it must also recompile the .c (in the same way). 
       - If there is a newer header file (.h) than the .o file, it must recompile the .c file. It must recompile all source files when a header file is edited, even if that header is not used.
       - If the executable exists and is more recent than all the .o files, there is no need to start linking again. Otherwise, use gcc -o by adding the flags and the specified libraries. Of course, if a specified .c or .h ﬁ le does not exist, fari must end with an error code and a message. If gcc indicates compilation errors, fari must also end with an error message. In the case where fari is executed correctly, that the various phases of the compilation execute correctly and that the executable has been saved, the program must return code 0 and only in this case.
