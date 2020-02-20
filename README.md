@@ -1,6 +1,8 @@
 # Project: Fari -- a mini automatic build system
   1. Description of the Fari project:
+  
   (Fari is a word in Esperanto which means make in English)
+  
   The project involves writing a simplified version of the make program, which helps automate the compilation of programs.However, Fari has fewer features than its big brother from the GNU software collection: it only automates the compilation of a single C program using the gcc compiler. The syntax for fari is as follows: fari [file-description]. If the name of the description file is omitted, default will be used. If the specified file does not exist, fari ends with an error code and a message.
   
   2. Fari's execution sequence
